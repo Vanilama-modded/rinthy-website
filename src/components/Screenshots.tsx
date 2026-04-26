@@ -1,26 +1,26 @@
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
+import { useI18n } from "../i18n/I18nContext";
 
 const screenshots = [
   {
     src: "https://raw.githubusercontent.com/imsawiq/Rinthy/main/docs/screenshots/login.png",
-    alt: "Login Screen",
-    label: "Login",
+    key: "login",
   },
   {
     src: "https://raw.githubusercontent.com/imsawiq/Rinthy/main/docs/screenshots/developer-panel.png",
-    alt: "Developer Panel",
-    label: "Dashboard",
+    key: "dashboard",
   },
   {
     src: "https://raw.githubusercontent.com/imsawiq/Rinthy/main/docs/screenshots/analytics.png",
-    alt: "Analytics",
-    label: "Analytics",
+    key: "analytics",
   },
 ];
 
+
 export default function Screenshots() {
+  const { t } = useI18n();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [active, setActive] = useState(0);
@@ -28,6 +28,7 @@ export default function Screenshots() {
 
   const next = () => setActive((a) => (a + 1) % screenshots.length);
   const prev = () => setActive((a) => (a - 1 + screenshots.length) % screenshots.length);
+
 
   return (
     <section id="screenshots" className="relative py-32 px-6 overflow-hidden">
@@ -39,14 +40,15 @@ export default function Screenshots() {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-medium text-modrinth-green tracking-wide uppercase mb-5">
-            Screenshots
+            {t.screenshots.badge}
           </span>
           <h2 className="font-display font-bold text-4xl sm:text-5xl mb-5">
-            See it in action.
+            {t.screenshots.title}
           </h2>
           <p className="text-modrinth-muted max-w-xl mx-auto text-lg">
-            Clean, fast, and purpose-built for mobile.
+            {t.screenshots.subtitle}
           </p>
+
         </motion.div>
 
         <motion.div
@@ -70,7 +72,8 @@ export default function Screenshots() {
                 <motion.img
                   key={active}
                   src={screenshots[active].src}
-                  alt={screenshots[active].alt}
+                  alt={t.screenshots.labels[screenshots[active].key as keyof typeof t.screenshots.labels]}
+
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 1.05 }}
@@ -108,9 +111,10 @@ export default function Screenshots() {
                 className={`relative h-1.5 rounded-full transition-all duration-300 ${
                   i === active ? "w-10 bg-modrinth-green" : "w-4 bg-modrinth-border hover:bg-white/20"
                 }`}
-                aria-label={s.label}
+                aria-label={t.screenshots.labels[s.key as keyof typeof t.screenshots.labels]}
               />
             ))}
+
           </div>
 
           <div className="flex md:hidden items-center justify-center gap-4 mt-4">
@@ -143,7 +147,8 @@ export default function Screenshots() {
           >
             <motion.img
               src={screenshots[lightbox].src}
-              alt={screenshots[lightbox].alt}
+              alt={t.screenshots.labels[screenshots[lightbox].key as keyof typeof t.screenshots.labels]}
+
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
@@ -156,4 +161,3 @@ export default function Screenshots() {
     </section>
   );
 }
-

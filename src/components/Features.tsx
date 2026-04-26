@@ -11,60 +11,31 @@ import {
   Wallet,
   Globe,
 } from "lucide-react";
+import { useI18n } from "../i18n/I18nContext";
 
-const features = [
-  {
-    icon: FolderOpen,
-    title: "Projects Dashboard",
-    desc: "Browse and manage all your Modrinth projects in one clean list.",
-  },
-  {
-    icon: BarChart3,
-    title: "Analytics",
-    desc: "Track downloads, follows, and engagement trends in real time.",
-  },
-  {
-    icon: Package,
-    title: "Version Management",
-    desc: "View, create, and edit project versions from your phone.",
-  },
-  {
-    icon: Users,
-    title: "Team Control",
-    desc: "Add, remove, and manage project team members on the go.",
-  },
-  {
-    icon: Bell,
-    title: "Notifications",
-    desc: "Stay on top of unread alerts without opening a browser.",
-  },
-  {
-    icon: UserCircle,
-    title: "Profile Editing",
-    desc: "Update username, bio, and avatar directly in the app.",
-  },
-  {
-    icon: Palette,
-    title: "Appearance",
-    desc: "Switch themes and pick your accent color for a personal touch.",
-  },
-  {
-    icon: Wallet,
-    title: "Balance View",
-    desc: "Check your Modrinth earnings and payout status instantly.",
-  },
-  {
-    icon: Globe,
-    title: "RU / EN",
-    desc: "Full Russian and English language support baked in.",
-  },
+
+const featureIcons = [
+  FolderOpen,
+  BarChart3,
+  Package,
+  Users,
+  Bell,
+  UserCircle,
+  Palette,
+  Wallet,
+  Globe,
 ];
 
+
 function FeatureCard({
-  feature,
+  icon: Icon,
+  title,
+  desc,
   index,
 }: {
-  feature: (typeof features)[0];
+  icon: (typeof featureIcons)[0];
+  title: string;
+  desc: string;
   index: number;
 }) {
   const ref = useRef(null);
@@ -83,16 +54,18 @@ function FeatureCard({
       className="group relative p-6 rounded-2xl glass hover:bg-white/[0.03] transition-all duration-500 hover:-translate-y-1"
     >
       <div className="mb-4 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-modrinth-green/10 text-modrinth-green group-hover:bg-modrinth-green group-hover:text-modrinth-dark transition-all duration-300">
-        <feature.icon size={20} strokeWidth={2} />
+        <Icon size={20} strokeWidth={2} />
       </div>
-      <h3 className="font-display font-semibold text-lg mb-2">{feature.title}</h3>
-      <p className="text-sm text-modrinth-muted leading-relaxed">{feature.desc}</p>
+      <h3 className="font-display font-semibold text-lg mb-2">{title}</h3>
+      <p className="text-sm text-modrinth-muted leading-relaxed">{desc}</p>
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none border border-modrinth-green/20" />
     </motion.div>
   );
 }
 
+
 export default function Features() {
+  const { t } = useI18n();
   const headerRef = useRef(null);
   const headerInView = useInView(headerRef, { once: true, margin: "-80px" });
 
@@ -107,23 +80,22 @@ export default function Features() {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-medium text-modrinth-green tracking-wide uppercase mb-5">
-            Features
+            {t.features.badge}
           </span>
           <h2 className="font-display font-bold text-4xl sm:text-5xl mb-5">
-            Everything you need.
+            {t.features.title}
           </h2>
           <p className="text-modrinth-muted max-w-xl mx-auto text-lg">
-            A full toolkit for Modrinth developers, redesigned for mobile.
+            {t.features.subtitle}
           </p>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((f, i) => (
-            <FeatureCard key={f.title} feature={f} index={i} />
+          {t.features.items.map((f, i) => (
+            <FeatureCard key={f.title} icon={featureIcons[i]} title={f.title} desc={f.desc} index={i} />
           ))}
         </div>
       </div>
     </section>
   );
 }
-

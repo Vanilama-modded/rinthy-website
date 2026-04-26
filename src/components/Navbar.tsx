@@ -1,18 +1,21 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Github, MessageCircle } from "lucide-react";
-
-
-const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "Screenshots", href: "#screenshots" },
-  { label: "How it works", href: "#how-it-works" },
-  { label: "Tech", href: "#tech" },
-];
+import { useI18n } from "../i18n/I18nContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
+  const { t } = useI18n();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navLinks = [
+    { label: t.nav.features, href: "#features" },
+    { label: t.nav.screenshots, href: "#screenshots" },
+    { label: t.nav.howItWorks, href: "#how-it-works" },
+    { label: t.nav.tech, href: "#tech" },
+  ];
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -60,7 +63,7 @@ export default function Navbar() {
             className="flex items-center gap-2 px-4 py-2 rounded-lg border border-modrinth-border hover:border-modrinth-green/50 hover:bg-modrinth-green/5 transition-all duration-300 text-sm"
           >
             <Github size={16} />
-            <span>GitHub</span>
+            <span>{t.nav.gitHub}</span>
           </a>
           <a
             href="https://discord.gg/wzXpC2C6Uu"
@@ -69,9 +72,11 @@ export default function Navbar() {
             className="flex items-center gap-2 px-4 py-2 rounded-lg border border-modrinth-border hover:border-[#5865F2]/50 hover:bg-[#5865F2]/10 transition-all duration-300 text-sm"
           >
             <MessageCircle size={16} />
-            <span>Discord</span>
+            <span>{t.nav.discord}</span>
           </a>
+          <LanguageSwitcher />
         </div>
+
 
 
         <button
@@ -109,7 +114,7 @@ export default function Navbar() {
                 className="flex items-center gap-2 text-modrinth-green py-2"
               >
                 <Github size={16} />
-                <span>View on GitHub</span>
+                <span>{t.footer.viewOnGitHub}</span>
               </a>
               <a
                 href="https://discord.gg/wzXpC2C6Uu"
@@ -118,10 +123,13 @@ export default function Navbar() {
                 className="flex items-center gap-2 text-[#5865F2] py-2"
               >
                 <MessageCircle size={16} />
-                <span>Join Discord</span>
+                <span>{t.footer.joinDiscord}</span>
               </a>
-
+              <div className="pt-2">
+                <LanguageSwitcher />
+              </div>
             </div>
+
           </motion.div>
         )}
       </AnimatePresence>

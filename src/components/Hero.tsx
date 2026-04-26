@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Smartphone, Zap, Shield } from "lucide-react";
+import { useI18n } from "../i18n/I18nContext";
 
 export default function Hero() {
+  const { t } = useI18n();
+
   return (
     <section className="relative min-h-screen flex items-center pt-20 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
@@ -13,7 +16,8 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-xs font-medium text-modrinth-green tracking-wide uppercase"
           >
             <span className="w-2 h-2 rounded-full bg-modrinth-green animate-pulse" />
-            Unofficial app for Modrinth
+            {t.hero.badge}
+
           </motion.div>
 
           <motion.h1
@@ -22,9 +26,10 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight"
           >
-            Modrinth in
+            {t.hero.title}
             <br />
-            <span className="text-gradient">your pocket.</span>
+            <span className="text-gradient">{t.hero.titleGradient}</span>
+
           </motion.h1>
 
           <motion.p
@@ -33,7 +38,8 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-lg text-modrinth-muted max-w-lg leading-relaxed"
           >
-            Rinthy lets Modrinth developers manage projects, track analytics, and handle versions — all from their phone. No desktop required.
+            {t.hero.description}
+
           </motion.p>
 
           <motion.div
@@ -49,13 +55,15 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-modrinth-green text-modrinth-dark font-semibold hover:brightness-110 transition-all duration-300 glow-green-strong"
             >
               <Smartphone size={18} />
-              Download APK
+              {t.hero.downloadApk}
+
             </a>
             <a
               href="#features"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl glass text-white font-medium hover:bg-white/5 transition-all duration-300"
             >
-              Explore features
+              {t.hero.exploreFeatures}
+
               <ArrowDown size={16} className="animate-bounce" />
             </a>
           </motion.div>
@@ -67,9 +75,10 @@ export default function Hero() {
             className="flex items-center gap-6 pt-4"
           >
             {[
-              { icon: Zap, label: "Lightning fast" },
-              { icon: Shield, label: "Secure OAuth" },
-              { icon: Smartphone, label: "Native feel" },
+              { icon: Zap, label: t.hero.stats.fast },
+              { icon: Shield, label: t.hero.stats.secure },
+              { icon: Smartphone, label: t.hero.stats.native },
+
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-2 text-sm text-modrinth-muted">
                 <item.icon size={14} className="text-modrinth-green" />

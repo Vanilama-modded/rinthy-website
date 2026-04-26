@@ -1,30 +1,14 @@
 import { motion } from "framer-motion";
-
 import { Download, LogIn, Rocket } from "lucide-react";
+import { useI18n } from "../i18n/I18nContext";
 
-const steps = [
-  {
-    icon: Download,
-    step: "01",
-    title: "Get the app",
-    desc: "Grab the latest APK from GitHub Releases or build from source. It's open source and free forever.",
-  },
-  {
-    icon: LogIn,
-    step: "02",
-    title: "Sign in",
-    desc: "Use Modrinth OAuth for a seamless login, or fall back to a Personal Access Token if you prefer.",
-  },
-  {
-    icon: Rocket,
-    step: "03",
-    title: "Take control",
-    desc: "Manage projects, check analytics, edit versions, and handle your team — all from your phone.",
-  },
-];
+const stepIcons = [Download, LogIn, Rocket];
+
 
 export default function Steps() {
+  const { t } = useI18n();
   return (
+
     <section id="how-it-works" className="relative py-32 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.div
@@ -36,22 +20,24 @@ export default function Steps() {
         >
 
           <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-medium text-modrinth-green tracking-wide uppercase mb-5">
-            How it works
+            {t.steps.badge}
           </span>
           <h2 className="font-display font-bold text-4xl sm:text-5xl mb-5">
-            Three steps to power.
+            {t.steps.title}
           </h2>
           <p className="text-modrinth-muted max-w-xl mx-auto text-lg">
-            No complicated setup. Just install, log in, and go.
+            {t.steps.subtitle}
           </p>
+
         </motion.div>
 
         <div className="relative">
           <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-modrinth-green/50 via-modrinth-green/20 to-transparent hidden sm:block" />
 
           <div className="space-y-16 md:space-y-24">
-            {steps.map((s, i) => {
+            {t.steps.items.map((s, i) => {
               const isEven = i % 2 === 0;
+              const Icon = stepIcons[i];
 
               return (
                 <motion.div
@@ -60,7 +46,6 @@ export default function Steps() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-
                   className={`relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 ${
                     isEven ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
@@ -77,7 +62,7 @@ export default function Steps() {
 
                   <div className="relative z-10 shrink-0">
                     <div className="w-14 h-14 rounded-2xl bg-modrinth-green flex items-center justify-center shadow-lg shadow-modrinth-green/20">
-                      <s.icon size={24} className="text-modrinth-dark" />
+                      <Icon size={24} className="text-modrinth-dark" />
                     </div>
                   </div>
 
@@ -85,6 +70,7 @@ export default function Steps() {
                 </motion.div>
               );
             })}
+
           </div>
         </div>
       </div>

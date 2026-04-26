@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { Github, Heart, ExternalLink } from "lucide-react";
+import { useI18n } from "../i18n/I18nContext";
 
 export default function Footer() {
+  const { t } = useI18n();
   return (
+
     <footer className="relative border-t border-modrinth-border py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
@@ -19,7 +22,8 @@ export default function Footer() {
             </div>
             <div>
               <span className="font-display font-bold text-lg">Rinthy</span>
-              <p className="text-xs text-modrinth-muted">Unofficial Modrinth app</p>
+              <p className="text-xs text-modrinth-muted">{t.footer.tagline}</p>
+
             </div>
           </div>
 
@@ -48,11 +52,12 @@ export default function Footer() {
 
         <div className="mt-10 pt-8 border-t border-modrinth-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-modrinth-muted">
           <p className="flex items-center gap-1">
-            Made with <Heart size={12} className="text-red-500 fill-red-500" /> by EmanuelPlays, Rinthy is not owned by EmanuelPlays
+            {t.footer.madeWith} <Heart size={12} className="text-red-500 fill-red-500" /> {t.footer.madeBy}
           </p>
           <p>
-            Not affiliated with or endorsed by Modrinth.
+            {t.footer.disclaimer}
           </p>
+
         </div>
       </div>
     </footer>

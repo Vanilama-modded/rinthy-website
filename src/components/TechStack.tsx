@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useI18n } from "../i18n/I18nContext";
+
 
 const techs = [
 
@@ -12,8 +14,10 @@ const techs = [
 ];
 
 export default function TechStack() {
+  const { t } = useI18n();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+
 
   return (
     <section id="tech" className="relative py-32 px-6">
@@ -24,14 +28,15 @@ export default function TechStack() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <span className="inline-block px-4 py-1.5 rounded-full glass text-xs font-medium text-modrinth-green tracking-wide uppercase mb-5">
-            Tech Stack
+            {t.techStack.badge}
           </span>
           <h2 className="font-display font-bold text-4xl sm:text-5xl mb-5">
-            Built with modern tools.
+            {t.techStack.title}
           </h2>
           <p className="text-modrinth-muted max-w-xl mx-auto text-lg mb-12">
-            A lightweight, type-safe stack designed for performance and maintainability.
+            {t.techStack.subtitle}
           </p>
+
         </motion.div>
 
         <div className="flex flex-wrap items-center justify-center gap-4">
