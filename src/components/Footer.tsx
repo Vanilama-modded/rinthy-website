@@ -1,0 +1,60 @@
+import { motion } from "framer-motion";
+import { Github, Heart, ExternalLink } from "lucide-react";
+
+export default function Footer() {
+  return (
+    <footer className="relative border-t border-modrinth-border py-16 px-6">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col md:flex-row items-center justify-between gap-8"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center">
+<img src="/logo.png" alt="Rinthy" className="w-5 h-5" />
+
+            </div>
+            <div>
+              <span className="font-display font-bold text-lg">Rinthy</span>
+              <p className="text-xs text-modrinth-muted">Unofficial Modrinth app</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-6 text-sm text-modrinth-muted">
+            <a
+              href="https://github.com/imsawiq/Rinthy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-white transition-colors"
+            >
+              <Github size={15} />
+              GitHub
+            </a>
+            <a
+              href="https://discord.gg/wzXpC2C6Uu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-white transition-colors"
+            >
+              <ExternalLink size={15} />
+              Discord
+            </a>
+
+          </div>
+        </motion.div>
+
+        <div className="mt-10 pt-8 border-t border-modrinth-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-modrinth-muted">
+          <p className="flex items-center gap-1">
+            Made with <Heart size={12} className="text-red-500 fill-red-500" /> by EmanuelPlays, Rinthy is not owned by EmanuelPlays
+          </p>
+          <p>
+            Not affiliated with or endorsed by Modrinth.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}

@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth
+  }
+  body {
+    font-family: 'Geist', system-ui, sans-serif;
+    background-color: #0D0D0D;
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #1BD96A 0%, #14b853 50%, #0D0D0D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glass {
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .glass-strong {
+    background: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .glow-green {
+    box-shadow: 0 0 40px rgba(27, 217, 106, 0.15), 0 0 80px rgba(27, 217, 106, 0.05);
+  }
+  .glow-green-strong {
+    box-shadow: 0 0 60px rgba(27, 217, 106, 0.2), 0 0 120px rgba(27, 217, 106, 0.1);
+  }
+}
