@@ -1,8 +1,19 @@
 {
-  "name": "rinthy-website",
-  "private": true,
+  "name": "@imsawiq/rinthy-website",
   "version": "1.0.0",
   "type": "module",
+  "description": "Rinthy landing page — Modrinth on your phone",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imsawiq/Rinthy.git"
+  },
+  "homepage": "https://github.com/imsawiq/Rinthy#readme",
+  "bugs": {
+    "url": "https://github.com/imsawiq/Rinthy/issues"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
