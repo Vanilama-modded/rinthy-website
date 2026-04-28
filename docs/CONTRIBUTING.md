@@ -2,14 +2,12 @@
 
 Thank you for your interest in contributing to Rinthy! This document will help you get started.
 
----
 
 ## Community
 
 - **Discord:** [https://discord.gg/wzXpC2C6Uu](https://discord.gg/wzXpC2C6Uu)
 - **GitHub:** [https://github.com/imsawiq/Rinthy](https://github.com/imsawiq/Rinthy)
 
----
 
 ## How to Contribute
 
@@ -39,15 +37,12 @@ Thank you for your interest in contributing to Rinthy! This document will help y
 6. **Push** to your fork (`git push origin feature/my-feature`).
 7. Open a **Pull Request** with a description of your changes.
 
----
-
 ## Development Setup
 
 ### Prerequisites
 
 - Node.js (v18 or higher)
 - npm or yarn
-- Android Studio (for Android builds)
 - Git
 
 ### Install Dependencies
@@ -70,21 +65,10 @@ This starts a local Vite dev server at `http://localhost:5173`.
 npm run build
 ```
 
-### Build Android APK
-
-```bash
-npm run build
-npx cap sync android
-npx cap open android
-```
-
-Then build the APK from Android Studio.
-
 ### Publishing to GitHub Packages
 
 Publishing is handled automatically via GitHub Actions when a release is created. See [GITHUB_PACKAGES.md](./GITHUB_PACKAGES.md) for details.
 
----
 
 ## Code Style
 
@@ -94,8 +78,6 @@ Publishing is handled automatically via GitHub Actions when a release is created
 - Keep components small and reusable.
 - Use `framer-motion` for animations consistently.
 
----
-
 ## Translation Guidelines
 
 If you're adding a new language:
@@ -104,8 +86,6 @@ If you're adding a new language:
 2. Translate all strings in the new language section.
 3. Update the `Language` type if needed.
 4. Test the UI to ensure text fits properly.
-
----
 
 ## Commit Message Convention
 
@@ -121,14 +101,10 @@ Use clear and descriptive commit messages:
 
 Example: `feat: add Italian language support`
 
----
-
 ## License
 
 By contributing, you agree that your contributions will be licensed under the project's license.
 
----
-
 ## Questions?
 
-Join our [Discord](https://discord.gg/wzXpC2C6Uu) and ask in the `#development` channel!
+Join our [Discord](https://discord.gg/wzXpC2C6Uu) and ask in the `#chat` channel!
