@@ -37,7 +37,7 @@ export default function TechStack() {
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap items-center justify-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-3 xs:gap-4">
           {techs.map((tech, i) => (
             <motion.div
               key={tech.name}
@@ -48,9 +48,9 @@ export default function TechStack() {
                 delay: enableAnimations ? 0.2 + i * 0.1 : 0,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="group px-6 py-3 rounded-xl glass hover:bg-white/[0.04] transition-all duration-300 cursor-default"
+              className="group px-5 xs:px-6 py-2.5 xs:py-3 rounded-xl glass hover:bg-white/[0.04] transition-all duration-300 cursor-default touch-manipulation min-h-[44px] flex items-center"
             >
-              <span className="font-medium text-sm" style={{ color: tech.color }}>
+              <span className="font-medium text-xs xs:text-sm" style={{ color: tech.color }}>
                 {tech.name}
               </span>
             </motion.div>

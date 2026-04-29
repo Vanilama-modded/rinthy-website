@@ -134,14 +134,14 @@ export default function Screenshots() {
           <div className="flex md:hidden items-center justify-center gap-4 mt-4">
             <button
               onClick={prev}
-              className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors"
+              className="w-11 h-11 min-h-[44px] rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors touch-manipulation"
               aria-label="Previous"
             >
               <ChevronLeft size={18} />
             </button>
             <button
               onClick={next}
-              className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors"
+              className="w-11 h-11 min-h-[44px] rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors touch-manipulation"
               aria-label="Next"
             >
               <ChevronRight size={18} />

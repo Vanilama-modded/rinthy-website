@@ -33,7 +33,7 @@ export default function Steps() {
         <div className="relative">
           <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-modrinth-green/50 via-modrinth-green/20 to-transparent hidden sm:block" />
 
-          <div className="space-y-16 md:space-y-24">
+          <div className="space-y-12 xs:space-y-16 md:space-y-24">
             {t.steps.items.map((s, i) => {
               const isEven = i % 2 === 0;
               const Icon = stepIcons[i];

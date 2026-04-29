@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Initial release of Rinthy website with full i18n support (EN/RU/IT)
-- Responsive landing page with hero, features, screenshots, steps, tech stack, and footer
+- Full mobile responsiveness and layout fixes (#6): responsive text sizing, improved touch targets (44px min), safe-area insets, better stacking/grids, optimized spacing/gaps for xs screens
 - Language switcher component
 - Framer Motion animations throughout the site
 

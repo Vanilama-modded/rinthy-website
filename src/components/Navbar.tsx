@@ -83,7 +83,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="md:hidden p-2"
+          className="md:hidden p-3 min-h-[44px] min-w-[44px] flex items-center justify-center"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -98,15 +98,15 @@ export default function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className={`md:hidden border-t border-modrinth-border ${enableBlur ? "glass-strong" : "glass-strong-simple"}`}
+              className={`md:hidden border-t border-modrinth-border ${enableBlur ? "glass-strong" : "glass-strong-simple"} touch-manipulation`}
             >
-              <div className="px-6 py-4 flex flex-col gap-4">
+              <div className="px-4 xs:px-6 py-6 flex flex-col gap-5">
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="text-modrinth-muted hover:text-white transition-colors py-2"
+                    className="text-modrinth-muted hover:text-white transition-colors py-3 min-h-[44px] flex items-center text-base"
                   >
                     {link.label}
                   </a>

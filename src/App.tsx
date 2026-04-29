@@ -15,7 +15,7 @@ const Footer = lazy(() => import("./components/Footer"));
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-modrinth-dark text-white overflow-x-hidden selection:bg-modrinth-green selection:text-modrinth-dark">
+    <div className="relative min-h-screen bg-modrinth-dark text-white overflow-x-hidden safe-top safe-bottom selection:bg-modrinth-green selection:text-modrinth-dark touch-manipulation">
       <GradientOrbs />
       <Navbar />
       <main>

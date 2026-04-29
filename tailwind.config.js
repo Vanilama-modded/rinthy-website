@@ -1,7 +1,22 @@
    /** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme'
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  safelist: [
+    'glass-simple',
+    'glass-strong-simple',
+    'glow-green-subtle', 
+    'glow-green-strong-subtle',
+    {
+      pattern: /(bg|text|border)-(glass|glow)-(simple|subtle)/,
+    },
+  ],
   theme: {
+    screens: {
+      'xs': '475px',
+      ...defaultTheme.screens,
+    },
     extend: {
       fontFamily: {
         sans: ["Geist", "system-ui", "sans-serif"],

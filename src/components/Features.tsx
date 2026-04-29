@@ -51,7 +51,7 @@ function FeatureCard({
         delay: enableAnimations ? index * 0.08 : 0,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="group relative p-6 rounded-2xl glass hover:bg-white/[0.03] transition-all duration-500"
+      className="group relative p-6 min-h-[120px] rounded-2xl glass hover:bg-white/[0.03] transition-all duration-500 touch-manipulation"
     >
       <div className="mb-4 inline-flex items-center justify-center w-11 h-11 rounded-xl bg-modrinth-green/10 text-modrinth-green group-hover:bg-modrinth-green group-hover:text-modrinth-dark transition-all duration-300">
         <Icon size={20} strokeWidth={2} />
@@ -92,7 +92,7 @@ export default function Features() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {t.features.items.map((f, i) => (
             <FeatureCard key={f.title} icon={featureIcons[i]} title={f.title} desc={f.desc} index={i} />
           ))}

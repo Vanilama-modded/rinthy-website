@@ -13,12 +13,12 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-8 z-10">
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 xs:gap-10 sm:gap-12 items-center">
+        <div className="space-y-6 xs:space-y-7 sm:space-y-8 z-10">
           <motion.div
             {...fadeUp}
             transition={{ duration: enableAnimations ? 0.8 : 0.01, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-xs font-medium text-modrinth-green tracking-wide uppercase"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-xs font-medium text-modrinth-green tracking-wide uppercase touch-manipulation"
           >
             <span className="w-2 h-2 rounded-full bg-modrinth-green animate-pulse" />
             {t.hero.badge}
@@ -27,7 +27,7 @@ export default function Hero() {
           <motion.h1
             {...fadeUp}
             transition={{ duration: enableAnimations ? 0.8 : 0.01, delay: enableAnimations ? 0.1 : 0, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight"
+            className="font-display font-bold text-4xl xs:text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight"
           >
             {t.hero.title}
             <br />
@@ -90,12 +90,12 @@ export default function Hero() {
           transition={{ duration: enableAnimations ? 1 : 0.01, delay: enableAnimations ? 0.3 : 0, ease: [0.22, 1, 0.36, 1] }}
           className="relative flex justify-center lg:justify-end perspective-1000"
         >
-          <div className={`relative w-[300px] sm:w-[340px] ${enableAnimations ? "animate-float" : ""}`}>
+          <div className={`relative w-full max-w-xs sm:max-w-sm mx-auto ${enableAnimations ? "animate-float" : ""}`}>
             <div className="absolute inset-0 bg-gradient-to-tr from-modrinth-green/20 to-transparent rounded-[3rem] blur-2xl" />
-            <div className={`relative bg-modrinth-card border border-modrinth-border rounded-[2.5rem] p-3 shadow-2xl ${enableGlows ? "glow-green" : "glow-green-subtle"}`}>
+            <div className={`relative bg-modrinth-card border border-modrinth-border rounded-[2.5rem] p-3 shadow-2xl ${enableGlows ? "glow-green" : "glow-green-subtle"} touch-manipulation`}>
               <div className="bg-modrinth-dark rounded-[2rem] overflow-hidden aspect-[9/19] relative">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-black rounded-b-2xl z-20" />
-                <div className="p-5 pt-10 h-full flex flex-col">
+                <div className="p-4 xs:p-5 pt-8 xs:pt-10 h-full flex flex-col">
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-10 h-10 rounded-xl flex items-center justify-center">
                       <img src="/logo.png" alt="Rinthy" className="w-6 h-6" />
